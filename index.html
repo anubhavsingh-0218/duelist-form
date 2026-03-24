@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Duelist Creatives — Apply</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
+
+<header class="topbar">
+  <div class="brand">⚔️ Duelist Creatives</div>
+</header>
+
+<section class="hero">
+  <h1>Join Duelist Creatives</h1>
+  <p>Freelance with India’s fastest growing creative network</p>
+
+  <button onclick="scrollToForm()" class="btn-primary">
+    Apply Now ↓
+  </button>
+</section>
+
+<section id="form-section">
+
+  <div class="form-card">
+
+    <h2>Application Form</h2>
+
+    <form id="form" action="https://formspree.io/f/YOUR_ID" method="POST">
+
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="place" placeholder="City / Place" required>
+
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone" placeholder="Phone" required>
+
+      <select name="work" required>
+        <option value="">Work of Interest</option>
+        <option>Photography</option>
+        <option>Videography</option>
+        <option>Editing</option>
+        <option>Design</option>
+      </select>
+
+      <input type="number" name="pay" placeholder="Expected Pay (₹/hr)">
+
+      <textarea name="experience" placeholder="Your Experience"></textarea>
+      <textarea name="remarks" placeholder="Remarks"></textarea>
+
+      <button type="submit" class="btn-submit">
+        Submit Application
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
