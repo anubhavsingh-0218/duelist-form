@@ -24,8 +24,13 @@
 </header>
 
 <section class="hero">
-  <h1>Join Duelist Creatives</h1>
-  <p>Freelance with India’s fastest growing creative network</p>
+  <h1>
+    Build Your Creative Career
+  </h1>
+
+  <p>
+    Join Duelist Creatives — India’s next-gen freelance network
+  </p>
 
   <button onclick="scrollToForm()" class="btn-primary">
     Apply Now ↓
@@ -34,36 +39,47 @@
 
 <section id="form-section">
 
-  <div class="form-card">
+  <div class="form-wrapper">
 
-    <h2>Application Form</h2>
+    <div class="form-header">
+      <h2>Apply to Duelist</h2>
+      <p>Takes less than 2 minutes</p>
+    </div>
 
-    <form id="form" action="https://formspree.io/f/YOUR_ID" method="POST">
+    <div class="form-card">
 
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="text" name="place" placeholder="City / Place" required>
+      <form id="form" action="https://formspree.io/f/YOUR_ID" method="POST">
 
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="tel" name="phone" placeholder="Phone" required>
+        <div class="grid-2">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="text" name="place" placeholder="City / Place" required>
+        </div>
 
-      <select name="work" required>
-        <option value="">Work of Interest</option>
-        <option>Photography</option>
-        <option>Videography</option>
-        <option>Editing</option>
-        <option>Design</option>
-      </select>
+        <div class="grid-2">
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+        </div>
 
-      <input type="number" name="pay" placeholder="Expected Pay (₹/hr)">
+        <select name="work" required>
+          <option value="">Select Work Type</option>
+          <option>Photography</option>
+          <option>Videography</option>
+          <option>Editing</option>
+          <option>Design</option>
+        </select>
 
-      <textarea name="experience" placeholder="Your Experience"></textarea>
-      <textarea name="remarks" placeholder="Remarks"></textarea>
+        <input type="number" name="pay" placeholder="Expected Pay (₹/hr)">
 
-      <button type="submit" class="btn-submit">
-        Submit Application
-      </button>
+        <textarea name="experience" placeholder="Your Experience"></textarea>
+        <textarea name="remarks" placeholder="Anything else..."></textarea>
 
-    </form>
+        <button type="submit" class="btn-submit">
+          Submit Application →
+        </button>
+
+      </form>
+
+    </div>
 
   </div>
 

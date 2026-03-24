@@ -4,7 +4,12 @@ function scrollToForm(){
   });
 }
 
-// success handling (optional)
-document.getElementById("form").addEventListener("submit", function(){
-  alert("Application submitted 🚀");
+// subtle input animation
+document.querySelectorAll("input, textarea, select").forEach(el=>{
+  el.addEventListener("focus",()=>{
+    el.style.transform="scale(1.02)";
+  });
+  el.addEventListener("blur",()=>{
+    el.style.transform="scale(1)";
+  });
 });
