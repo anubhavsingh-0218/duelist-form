@@ -82,7 +82,15 @@
 .logo {
   height: 26px;
 }
+.brand {
+  cursor: pointer;
+  transition: 0.3s;
+}
 
+.brand:hover {
+  opacity: 0.8;
+  transform: scale(1);
+}
 /* Brand text alignment */
 .brand span {
   font-size: 16px;
@@ -96,16 +104,31 @@
 
 /* HAMBURGER */
 .hamburger {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   display: none;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 6px;
-  cursor: pointer;
+  justify-content: center;
   border-radius: 12px;
+  cursor: pointer;
   transition: 0.3s;
+}
+
+.hamburger i {
+  width: 22px;
+  height: 22px;
+  color: var(--text);
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* SHOW ON MOBILE */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
 }
 
 .hamburger:hover {
@@ -137,28 +160,48 @@
 
 /* MOBILE MENU */
 .mobile-menu {
-  display: none;
   position: absolute;
-
-  top: 100%;       /* directly below navbar */
+  top: 100%;
   right: 20px;
+  width: 220px;
 
-  width: 200px;
+  background: rgba(20, 10, 12, 0.6);
+  backdrop-filter: blur(25px) saturate(1.8);
+  -webkit-backdrop-filter: blur(25px) saturate(1.8);
 
-  background: rgba(20,10,12,0.95);
-  backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 40, 60, 0.25);
+  border-radius: 16px;
 
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6),
+    inset 0 0 20px rgba(255,255,255,0.03);
 
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-
-  overflow: hidden;
+  padding: 10px;
   z-index: 999;
 
-  margin-top: 10px; /* small gap from navbar */
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.25s ease;
 }
 
+.mobile-menu.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+.mobile-menu a:hover {
+  background: rgba(255,255,255,0.05);
+}
 @keyframes fadeMenu {
   from { opacity: 0; transform: translateY(-10px) scale(0.95); }
   to { opacity: 1; transform: translateY(0) scale(1); }
@@ -204,9 +247,12 @@ input,select,textarea{font:inherit}
 /* ───────────────────────────────────────────
    ANIMATED CANVAS BACKGROUND
 ─────────────────────────────────────────── */
-#bg-canvas{
-  position:fixed;inset:0;z-index:0;
-  pointer-events:none;
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* mesh gradient blobs */
@@ -256,19 +302,37 @@ body::after{
 /* ───────────────────────────────────────────
    TOPBAR
 ─────────────────────────────────────────── */
-.topbar{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 24px;
-  position:sticky;top:0;z-index:100;position: relative;
-  background:rgba(12,6,8,0.75);
-  backdrop-filter:blur(20px) saturate(1.4);
-  -webkit-backdrop-filter:blur(20px) saturate(1.4);
-  border-bottom:1px solid var(--border);
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 28px;
+
+  background: rgba(15, 8, 10, 0.55);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+
+  border-bottom: 1px solid rgba(220, 40, 60, 0.2);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.5),
+    inset 0 -1px 0 rgba(255,255,255,0.03);
 }
-.topbar::after{
-  content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--red),transparent);
-  opacity:.5;
+.topbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, #ff3349, transparent);
+  opacity: 0.6;
 }
 .brand{
   display:flex;align-items:center;gap:10px;
@@ -376,15 +440,79 @@ body::after{
 .btn-apply:hover i{transform:translateY(3px)}
 
 /* scroll chevron */
-.scroll-hint{
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  color:var(--text-3);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  opacity:0;animation:fadeUp .7s var(--ease) .7s forwards;
-  margin-top:8px;
+.scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--text-3);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  margin-top: 12px;
+
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* ✨ glowing text pulse */
+.scroll-hint span {
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    opacity: 0.5;
+    text-shadow: 0 0 0px transparent;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 60, 80, 0.6);
+  }
 }
 @keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-.scroll-hint i{animation:scrollBounce 2s ease-in-out infinite}
+.scroll-hint i {
+  animation: arrowBounce 1.6s ease-in-out infinite;
+}
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+.scroll-hint::after {
+  content: "";
+  width: 2px;
+  height: 30px;
+  margin-top: 6px;
 
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 60, 80, 0.6),
+    transparent
+  );
+
+  animation: trailFade 1.8s ease-in-out infinite;
+}
+
+@keyframes trailFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
 /* ───────────────────────────────────────────
    DIVIDER
 ─────────────────────────────────────────── */
@@ -748,34 +876,29 @@ footer{
   <!-- ── TOPBAR ── -->
   <header class="topbar">
   <!-- LEFT -->
-  <div class="brand">
+  <a href="#top" class="brand">
     <img src="./logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
     <span>DUELIST</span>
-  </div>
+  </a>
 
   <!-- CENTER (PC NAV) -->
   <div class="nav-links">
     <a href="duelist.html" class="nav-btn">Duelist</a>
-    <a href="vishnity.html" class="nav-btn">Vishnity</a>
+    <a href="cosmicai.html" class="nav-btn">VISHNITY</a>
   </div>
 
   <!-- RIGHT -->
   <div class="nav-right">
-    <div class="topbar-tag">Now Hiring Creators</div>
+    <div class="topbar-tag">Now Hiring</div>
 
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-  <span></span>
-  
-  <span></span>
-  
-  <span></span>
-  ☰
+    <div class="hamburger" id="hamburger">
+  <i data-lucide="menu"></i>
 </div>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="duelist.html">Duelist</a>
-    <a href="vishnity.html">Vishnity</a>
+    <a href="cosmicai.html">VISHNITY</a>
   </div>
 </header>
 
@@ -1061,28 +1184,27 @@ footer{
   </footer>
 
 </div><!-- /page -->
-
+<canvas id="bg-canvas"></canvas>
 <script>
-  document.addEventListener("click", function (e) {
-  const menu = document.getElementById("mobileMenu");
-  const hamburger = document.getElementById("hamburger");
+  // ── Init Lucide icons
+lucide.createIcons();
 
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("mobileMenu");
+
+hamburger.addEventListener("click", (e) => {
+  e.stopPropagation();
+  hamburger.classList.toggle("active");
+  menu.classList.toggle("show");
+});
+
+document.addEventListener("click", (e) => {
   if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-    menu.style.display = "none";
+    menu.classList.remove("show");
     hamburger.classList.remove("active");
   }
-});
-// ── Init Lucide icons
-lucide.createIcons();
-function toggleMenu() {
-  const menu = document.getElementById("mobileMenu");
-  const burger = document.getElementById("hamburger");
+}); 
 
-  const isOpen = menu.style.display === "block";
-
-  menu.style.display = isOpen ? "none" : "block";
-  burger.classList.toggle("active");
-}
 // ── Scroll reveal
 const revealEls = document.querySelectorAll('.reveal, .reveal-stagger, .form-label-section');
 const io = new IntersectionObserver(entries => {
@@ -1230,6 +1352,132 @@ style.textContent = `
   80%{transform:translateX(6px)}
 }`;
 document.head.appendChild(style);
+// ── PARTICLE SYSTEM (ULTRA SMOOTH)
+const canvas = document.getElementById("bg-canvas");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+const PARTICLE_COUNT = 80;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 0.5;
+    this.speedX = (Math.random() - 0.5) * 0.3;
+    this.speedY = (Math.random() - 0.5) * 0.3;
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    // wrap around screen
+    if (this.x > canvas.width) this.x = 0;
+    if (this.x < 0) this.x = canvas.width;
+    if (this.y > canvas.height) this.y = 0;
+    if (this.y < 0) this.y = canvas.height;
+  }
+
+  draw() {
+    ctx.fillStyle = "rgba(255, 60, 80, 0.6)";
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// init particles
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  particles.push(new Particle());
+}
+
+// connect lines
+function connectParticles() {
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a; b < particles.length; b++) {
+      let dx = particles[a].x - particles[b].x;
+      let dy = particles[a].y - particles[b].y;
+      let dist = dx * dx + dy * dy;
+
+      if (dist < 12000) {
+        ctx.strokeStyle = "rgba(255, 50, 70, 0.08)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+
+  connectParticles();
+  requestAnimationFrame(animateParticles);
+  let mouse = { x: null, y: null };
+
+window.addEventListener("mousemove", e => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+});
+
+function connectParticles() {
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a; b < particles.length; b++) {
+      let dx = particles[a].x - particles[b].x;
+      let dy = particles[a].y - particles[b].y;
+      let dist = dx * dx + dy * dy;
+
+      if (dist < 12000) {
+        ctx.strokeStyle = "rgba(255, 50, 70, 0.08)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
+        ctx.stroke();
+      }
+
+      // ✨ mouse attraction
+      let mdx = particles[a].x - mouse.x;
+      let mdy = particles[a].y - mouse.y;
+      let mdist = mdx * mdx + mdy * mdy;
+
+      if (mdist < 15000) {
+        particles[a].x -= mdx * 0.002;
+        particles[a].y -= mdy * 0.002;
+      }
+    }
+  }
+}
+}
+
+animateParticles();
+const scrollHint = document.querySelector(".scroll-hint");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    scrollHint.style.opacity = "0";
+    scrollHint.style.transform = "translateY(20px)";
+  } else {
+    scrollHint.style.opacity = "1";
+    scrollHint.style.transform = "translateY(0)";
+  }
+});
 </script>
 </body>
 </html>
