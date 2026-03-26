@@ -25,3 +25,8 @@ The goal is to build a fast, scalable onboarding pipeline for creative talent ac
 - Vanilla JavaScript
 - Formspree (Form backend)
 - GitHub Pages (Hosting)
+
+
+## 27.03.2023.01.02
+- Map is causing lag 
+- mp4 is not a problem
