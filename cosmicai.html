@@ -498,15 +498,32 @@ footer {
 <!-- ZODIAC STRIP -->
 <div class="zodiac-strip">
   <div class="zodiac-ticker">
-    <span>♈</span><span>♉</span><span>♊</span><span>♋</span><span>♌</span><span>♍</span>
-    <span>♎</span><span>♏</span><span>♐</span><span>♑</span><span>♒</span><span>♓</span>
-    <span>★</span>
-    <span>♈</span><span>♉</span><span>♊</span><span>♋</span><span>♌</span><span>♍</span>
-    <span>♎</span><span>♏</span><span>♐</span><span>♑</span><span>♒</span><span>♓</span>
-    <span>★</span>
-    <span>♈</span><span>♉</span><span>♊</span><span>♋</span><span>♌</span><span>♍</span>
-    <span>♎</span><span>♏</span><span>♐</span><span>♑</span><span>♒</span><span>♓</span>
-    <span>★</span>
+    <span>VISHNITY</span>
+    <span>✦</span>
+    <span>AI SYSTEMS</span>
+    <span>✦</span>
+    <span>DIGITAL DOMINANCE</span>
+    <span>✦</span>
+    <span>GLOBAL NETWORK</span>
+    <span>✦</span>
+    <span>AUTOMATION</span>
+    <span>✦</span>
+    <span>INTELLIGENCE</span>
+    <span>✦</span>
+
+    <!-- repeat for seamless loop -->
+    <span>VISHNITY</span>
+    <span>✦</span>
+    <span>AI SYSTEMS</span>
+    <span>✦</span>
+    <span>DIGITAL DOMINANCE</span>
+    <span>✦</span>
+    <span>GLOBAL NETWORK</span>
+    <span>✦</span>
+    <span>AUTOMATION</span>
+    <span>✦</span>
+    <span>INTELLIGENCE</span>
+    <span>✦</span>
   </div>
 </div>
 
@@ -703,7 +720,7 @@ fetch('countries.geo.json')
 
   function project3D(lat, lon, rotY) {
     const phi = (90 - lat) * Math.PI / 180;
-    const theta = (lon + rotY) * Math.PI / 180;
+    const theta = (- lon + rotY) * Math.PI / 180;
     return {
       x: cx + r * Math.sin(phi) * Math.cos(theta),
       y: cy - r * Math.cos(phi),
