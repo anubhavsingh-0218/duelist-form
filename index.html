@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="favicons.png">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Join Duelist Creatives — Apply to freelance with India's elite creative network." />
-<title>Join Duelist Creatives — Apply Now</title>
+<title>Duelist Creatives -Careers</title>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -38,19 +39,124 @@
   --radius-sm:   10px;
   --radius:      16px;
   --radius-lg:   24px;
-  --font-h:      'Playfair Display', serif;
-  --font-b:      'Plus Jakarta Sans', sans-serif;
+  --font-h:      'Space Grotesk', sans-serif;
+  --font-b:      'Inter', sans-serif;
   --ease:        cubic-bezier(.4,0,.2,1);
   --dur:         .3s;
 }
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
 
+/* BUTTON STYLE */
+.nav-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: var(--red);
+  color: white;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Make navbar cleaner */
+.topbar {
+  padding: 14px 28px;
+  
+}
+
+/* Fix logo size */
+.logo {
+  height: 26px;
+}
+
+/* Brand text alignment */
+.brand span {
+  font-size: 16px;
+  font-weight: 600;
+}
+/* LOGO IMAGE */
+.logo {
+  height: 34px;
+  width: auto;
+}
+
+/* HAMBURGER */
+.hamburger {
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.hamburger:hover {
+  background: var(--surface);
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: absolute;
+
+  top: 100%;       /* directly below navbar */
+  right: 20px;
+
+  width: 200px;
+
+  background: rgba(20,10,12,0.95);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+  overflow: hidden;
+  z-index: 999;
+
+  margin-top: 10px; /* small gap from navbar */
+}
+
+@keyframes fadeMenu {
+  from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .topbar-tag {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
 /* ───────────────────────────────────────────
    RESET
 ─────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 body{
-  font-family:var(--font-b);
+  font-family:var(--font-h);
   background:var(--bg);
   color:var(--text);
   min-height:100svh;
@@ -125,7 +231,7 @@ body::after{
 .topbar{
   display:flex;align-items:center;justify-content:space-between;
   padding:20px 24px;
-  position:sticky;top:0;z-index:100;
+  position:sticky;top:0;z-index:100;position: relative;
   background:rgba(12,6,8,0.75);
   backdrop-filter:blur(20px) saturate(1.4);
   -webkit-backdrop-filter:blur(20px) saturate(1.4);
@@ -174,7 +280,11 @@ body::after{
 }
 .hero-eyebrow::before,
 .hero-eyebrow::after{content:'';width:28px;height:1.5px;background:var(--red-bright);border-radius:1px;opacity:.6}
-
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 .hero-title{
   font-family:var(--font-h);
   font-size:clamp(36px,10vw,78px);
@@ -609,12 +719,33 @@ footer{
 
   <!-- ── TOPBAR ── -->
   <header class="topbar">
-    <div class="brand">
-      <div class="brand-icon">⚔️</div>
-      Duelist Creatives
-    </div>
+  <!-- LEFT -->
+  <div class="brand">
+    <img src="./logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
+    <span>Duelist Creatives</span>
+  </div>
+
+  <!-- CENTER (PC NAV) -->
+  <div class="nav-links">
+    <a href="duelist.html" class="nav-btn">Duelist</a>
+    <a href="vishnity.html" class="nav-btn">Vishnity</a>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
     <div class="topbar-tag">Now Hiring Creators</div>
-  </header>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      ☰
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="duelist.html">Duelist Creatives</a>
+    <a href="vishnity.html">Vishnity</a>
+  </div>
+</header>
 
   <!-- ── HERO ── -->
   <section class="hero" id="top">
@@ -624,8 +755,8 @@ footer{
     </div>
 
     <h1 class="hero-title">
-      Join Duelist
-      <span class="accent">Creatives</span>
+      Join 
+      <span class="accent">Duelist Creatives</span>
     </h1>
 
     <p class="hero-sub">
@@ -807,15 +938,15 @@ footer{
               required
             >
               <option value="" disabled selected></option>
-              <option value="Photography">📸 Photography</option>
-              <option value="Videography">🎬 Videography</option>
-              <option value="Video Editing">✂️ Video Editing</option>
-              <option value="Photo Editing">🖼️ Photo Editing</option>
-              <option value="Content Writing">✍️ Content Writing</option>
-              <option value="Graphic Design">🎨 Graphic Design</option>
-              <option value="Drone Pilot">✈️ Drone Pilot</option>
-              <option value="Creative Direction">💡 Creative Direction</option>
-              <option value="Other">⚡ Other</option>
+              <option value="Photography">Photography</option>
+              <option value="Videography">Videography</option>
+              <option value="Video Editing">Video Editing</option>
+              <option value="Photo Editing">Photo Editing</option>
+              <option value="Content Writing">Content Writing</option>
+              <option value="Graphic Design">Graphic Design</option>
+              <option value="Drone Pilot">Drone Pilot</option>
+              <option value="Creative Direction">Creative Direction</option>
+              <option value="Other">Other</option>
             </select>
             <label class="field-label" for="workInterest">Work of Interest <span class="req">*</span></label>
           </div>
@@ -846,10 +977,10 @@ footer{
               name="experience"
               placeholder=" "
               rows="4"
-              maxlength="500"
+              maxlength="1000"
             ></textarea>
             <label class="field-label" for="experience">Your Experience</label>
-            <div class="char-count" id="expCount">0 / 500</div>
+            <div class="char-count" id="expCount">0 / 1000</div>
           </div>
 
           <!-- Remarks -->
@@ -887,7 +1018,7 @@ footer{
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-brand">
-      <div class="footer-icon">⚔️</div>
+      
       Duelist Creatives
     </div>
     <div class="footer-promise">
@@ -900,9 +1031,21 @@ footer{
 </div><!-- /page -->
 
 <script>
+  document.addEventListener("click", function (e) {
+  const menu = document.getElementById("mobileMenu");
+  const hamburger = document.getElementById("hamburger");
+
+  if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.style.display = "none";
+    hamburger.classList.remove("active");
+  }
+});
 // ── Init Lucide icons
 lucide.createIcons();
-
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
 // ── Scroll reveal
 const revealEls = document.querySelectorAll('.reveal, .reveal-stagger, .form-label-section');
 const io = new IntersectionObserver(entries => {
