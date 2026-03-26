@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Duelist Creatives — The Future of Creative Talent</title>
+<meta name="description" content="Duelist connects brands with elite photographers, videographers, and creators across India."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:hsl(0,0%,4%);--fg:hsl(0,0%,95%);--card:hsl(0,0%,8%);
+--muted:hsl(0,0%,50%);--border:hsl(0,0%,15%);
+--primary:hsl(0,85%,55%);--primary-fg:hsl(0,0%,100%);
+--accent:hsl(0,70%,45%);--radius:0.75rem;
+}
+body{background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif}
+
+/* Grain */
+.grain{position:relative}
+.grain::before{content:'';position:fixed;inset:-50%;width:200%;height:200%;background:transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E") repeat;pointer-events:none;z-index:1;animation:grain 8s steps(10) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}20%{transform:translate(-15%,5%)}30%{transform:translate(7%,-25%)}40%{transform:translate(-5%,25%)}50%{transform:translate(-15%,10%)}60%{transform:translate(15%,0%)}70%{transform:translate(0%,15%)}80%{transform:translate(3%,35%)}90%{transform:translate(-10%,10%)}}
+
+/* Utilities */
+.glass-card{background:hsla(0,0%,8%,0.5);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid hsla(0,0%,15%,0.5);border-radius:var(--radius)}
+.gradient-text{background:linear-gradient(135deg,var(--primary),var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.glow-primary{box-shadow:0 0 30px -5px hsla(0,85%,55%,0.4),0 0 60px -10px hsla(0,70%,45%,0.2)}
+.glow-text{text-shadow:0 0 40px hsla(0,85%,55%,0.5),0 0 80px hsla(0,70%,45%,0.3)}
+
+/* Nav */
+nav{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:auto;
+  z-index:50;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+    margin-left: auto;
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: var(--muted);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+  text-shadow: 0 0 10px rgba(255,0,0,0.5);
+  color: var(--fg);
+}
+nav .inner {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; /* 🔥 spacing between logo & links */
+}
+html {
+  scroll-behavior: smooth;
+}
+.logo {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+nav .logo{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;letter-spacing:-0.025em}
+nav .logo span{color:var(--primary)}
+nav button{font-size:.875rem;color:var(--muted);background:none;border:none;cursor:pointer;transition:color .3s}
+nav button:hover{color:var(--fg)}
+.glass-nav {
+  background: rgba(10,10,10,0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 0.75rem 1.25rem;
+}
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:1.5rem}
+.hero .orb{position:absolute;border-radius:50%;filter:blur(120px);animation:pulse-glow 6s ease-in-out infinite}
+.hero .orb-1{top:25%;left:25%;width:600px;height:600px;background:hsla(0,85%,55%,0.05)}
+.hero .orb-2{bottom:25%;right:25%;width:500px;height:500px;background:hsla(0,70%,45%,0.05);animation-delay:2s}
+@keyframes pulse-glow{0%,100%{opacity:0.5;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+.hero-content{position:relative;z-index:10;max-width:64rem;text-align:center}
+.hero .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:9999px;margin-bottom:2rem;font-size:.875rem;color:var(--muted);font-weight:500}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:700;letter-spacing:-0.025em;line-height:1.05;margin-bottom:1.5rem}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);color:var(--muted);max-width:40rem;margin:0 auto 3rem;line-height:1.7}
+.hero .input-group{display:flex;max-width:28rem;margin:0 auto;gap:.5rem;padding:.375rem;border-radius:.75rem}
+.hero input{flex:1;background:transparent;border:none;padding:.75rem 1rem;font-size:.875rem;color:var(--fg);outline:none;min-width:0}
+.hero input::placeholder{color:var(--muted)}
+.hero .btn-primary{padding:.75rem 1.5rem;background:var(--primary);color:var(--primary-fg);border:none;border-radius:.5rem;font-weight:500;font-size:.875rem;cursor:pointer;white-space:nowrap;transition:opacity .3s}
+.hero .btn-primary:hover{opacity:.9}
+.hero .secondary-cta{margin-top:1.25rem;display:inline-flex;align-items:center;gap:.375rem;font-size:.875rem;color:var(--muted);background:none;border:none;cursor:pointer;transition:color .3s}
+.hero .secondary-cta:hover{color:var(--primary)}
+.hero .secondary-cta svg{transition:transform .3s}
+.hero .secondary-cta:hover svg{transform:translateX(2px)}
+
+/* Sections */
+section{padding:6rem 1.5rem}
+section.slim{padding:8rem 1.5rem}
+.section-inner{max-width:64rem;margin:auto}
+.section-title{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;text-align:center;margin-bottom:4rem}
+.divider{max-width:16rem;margin:0 auto;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+
+/* What Is */
+.what-is p{font-size:clamp(1rem,2vw,1.25rem);color:var(--muted);line-height:1.7;max-width:40rem;margin:0 auto;text-align:center}
+
+/* Pillars / Slideshow */
+.slideshow-wrap{position:relative;z-index: 5;height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+.slideshow-fade-top,.slideshow-fade-bottom{position:absolute;left:0;right:0;height:5rem;z-index:10}
+.slideshow-fade-top{top:0;background:linear-gradient(to bottom,var(--bg),transparent)}
+.slideshow-fade-bottom{bottom:0;background:linear-gradient(to top,var(--bg),transparent)}
+.slideshow-item{position:absolute;left:50%;transform:translateX(-50%);z-index:2 ;font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;letter-spacing:-0.025em;white-space:nowrap;transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);}
+.slideshow-item.center{transform:scale(1.15)}
+.dots{display:flex;justify-content:center;gap:4px;margin-top:2rem}
+.dot{width:6px;height:6px;border-radius:9999px;background:hsla(0,0%,50%,0.3);border:none;cursor:pointer;padding:0;transition:all .3s}
+.dot.active{background:var(--primary);width:16px}
+#slideshow {
+  position: relative;
+  height: 100%;
+}/*
+.slideshow-wrap::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 140px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.8),
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.8)
+  );*//*
+  z-index: 1;
+  border-radius: 12px;
+}
+/* Why Join */
+.reason-card{display:flex;align-items:center;gap:1.25rem;padding:1.5rem 2rem;border-radius:.75rem;margin-bottom:1rem;transition:border-color .5s}
+.reason-card:hover{border-color:hsla(0,85%,55%,0.3)}
+.reason-icon{width:2.5rem;height:2.5rem;border-radius:.5rem;background:hsla(0,85%,55%,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.reason-icon svg{width:20px;height:20px;color:var(--primary)}
+.reason-card span{font-weight:500;font-size:1.125rem}
+
+/* For Brands */
+.brands-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.brand-card{border-radius:1rem;padding:2rem;transition:border-color .5s}
+.brand-card:hover{border-color:hsla(0,70%,45%,0.3)}
+.brand-icon{width:3rem;height:3rem;border-radius:.75rem;background:hsla(0,70%,45%,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.brand-icon svg{width:20px;height:20px;color:var(--accent)}
+.brand-card h3{font-size:1.125rem;font-weight:600;margin-bottom:.5rem}
+.brand-card p{font-size:.875rem;color:var(--muted);line-height:1.6}
+
+/* Countdown */
+.countdown-grid{display:flex;justify-content:center;gap:clamp(.75rem,2vw,2rem)}
+.countdown-box{border-radius:1rem;padding:clamp(1rem,2vw,2rem);min-width:clamp(70px,12vw,110px);text-align:center}
+.countdown-box .num{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.75rem,5vw,3rem);font-weight:700}
+.countdown-box .label{font-size:clamp(.625rem,1vw,.875rem);color:var(--muted);margin-top:.5rem;text-transform:uppercase;letter-spacing:.15em}
+
+/* Footer */
+footer{padding:3rem 1.5rem;border-top:1px solid hsla(0,0%,15%,0.5)}
+footer .inner{max-width:64rem;margin:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem}
+footer .copy{font-size:.875rem;color:var(--muted)}
+footer .socials{display:flex;gap:1.25rem}
+footer .socials a{color:var(--muted);transition:color .3s}
+footer .socials a:hover{color:var(--primary)}
+footer .socials svg{width:20px;height:20px}
+
+/* Animations */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-left{opacity:0;transform:translateX(-20px);transition:opacity .5s ease,transform .5s ease}
+.fade-left.visible{opacity:1;transform:translateX(0)}
+
+canvas#particles{position:fixed;inset:0;pointer-events:none;z-index:2}
+</style>
+</head>
+<body class="grain">
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="inner glass-nav">
+    <a href="#" class="logo">DUELIST<span>.</span></a>
+
+    <div class="nav-links">
+      <a href="#">VISHNITY</a>
+      <a href="#">Careers</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+<div class="orb orb-1"></div><div class="orb orb-2"></div>
+<div class="hero-content">
+<div class="badge glass-card"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>Launching Soon in India</div>
+<h1>The Future of Creative<br/>Talent is <span class="gradient-text">Coming.</span></h1>
+<p>Duelist connects brands with elite photographers, videographers, and creators across India.</p>
+<div class="input-group glass-card"><input type="email" placeholder="Enter your email"/><button class="btn-primary glow-primary">Join the Network</button></div>
+
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- What is Duelist -->
+<section class="slim">
+<div class="section-inner what-is fade-up">
+<h2 class="section-title">What is <span class="gradient-text">Duelist?</span></h2>
+<p>A next-gen platform for hiring and scaling creative talent.<br/>Built for brands, powered by creators.</p>
+</div>
+</section>
+
+<!-- Launching With -->
+<section>
+<div class="section-inner">
+<h2 class="section-title fade-up">Launching With</h2>
+<div class="slideshow-wrap">
+<div class="slideshow-fade-top"></div>
+<div class="slideshow-fade-bottom"></div>
+<div id="slideshow"></div>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+</section>
+
+<!-- Why Join Early -->
+<section>
+<div class="section-inner" style="max-width:48rem">
+<h2 class="section-title fade-up">Why Join <span class="gradient-text">Early?</span></h2>
+<div id="reasons"></div>
+</div>
+</section>
+
+<!-- For Brands -->
+<section>
+<div class="section-inner">
+<h2 class="section-title fade-up">For <span class="gradient-text">Brands</span></h2>
+<div class="brands-grid" id="brands"></div>
+</div>
+</section>
+
+<!-- Countdown -->
+<section class="slim">
+<div class="section-inner" style="text-align:center">
+<h2 class="section-title fade-up">Launching In</h2>
+<div class="countdown-grid fade-up" id="countdown"></div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="inner">
+<span class="copy">&copy; Duelist Creatives</span>
+<div class="socials">
+<a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+<a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+</div>
+</div>
+</footer>
+
+<script>
+// Particles
+(function(){
+const c=document.getElementById('particles'),x=c.getContext('2d');
+let ps=[];const N=90;
+function resize(){
+  c.width = window.innerWidth;
+  c.height = window.innerHeight;
+}
+function init(){resize();ps=[];for(let i=0;i<N;i++)ps.push({x:Math.random()*c.width,y:Math.random()*c.height,s:Math.random()*3+1,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.3-.1,o:Math.random()*.6+.3,p:Math.random()*Math.PI*2,ps:Math.random()*.03+.01})}
+function draw(){x.clearRect(0,0,c.width,c.height);for(const q of ps){q.x+=q.vx;q.y+=q.vy;q.p+=q.ps;if(q.x<0)q.x=c.width;if(q.x>c.width)q.x=0;if(q.y<0)q.y=c.height;if(q.y>c.height)q.y=0;const a=q.o*(.5+.5*Math.sin(q.p)),l=50+Math.sin(q.p)*20;x.beginPath();x.arc(q.x,q.y,q.s,0,Math.PI*2);x.fillStyle=`hsla(0,85%,${l}%,${a})`;x.fill();x.beginPath();x.arc(q.x,q.y,q.s*4,0,Math.PI*2);x.fillStyle=`hsla(0,90%,50%,${a*.2})`;x.fill()}requestAnimationFrame(draw)}
+init();draw();new ResizeObserver(resize).observe(document.documentElement);
+})();
+
+// Scroll animations
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'-50px'});
+document.querySelectorAll('.fade-up,.fade-left').forEach(el=>obs.observe(el));
+
+// Slideshow
+(function(){
+const disciplines=["Photography","Videography","Video Editing","Photo Editing","Content Writing","Graphic Design","Drone Pilot","Creative Direction","Illustration","Animation","Motion Graphics","UX/UI Design","Web Design","Copywriting","Social Media Management","Sound Design","Music Production","Interior Design","Fashion Design","Architecture","Sculpture","Painting","Game Design","Podcasting","Art Direction"];
+let cur=0;const wrap=document.getElementById('slideshow'),dotsC=document.getElementById('dots');
+// Build dots
+disciplines.forEach((_,i)=>{const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=()=>{cur=i;render()};dotsC.appendChild(d)});
+function render(){wrap.innerHTML='';const dots=dotsC.children;for(let i=0;i<dots.length;i++)dots[i].className=i===cur?'dot active':'dot';
+for(let off=-2;off<=2;off++){const idx=(cur+off+disciplines.length)%disciplines.length;const el=document.createElement('div');el.className='slideshow-item'+(off===0?' center':'');const abs=Math.abs(off);el.style.top = "50%";
+el.style.left = "50%";
+el.style.transform = `
+  translate(-50%, -50%)
+  translateY(${off * 70}px)
+  scale(${off === 0 ? 1.2 : 1 - abs * 0.1})
+`;el.style.opacity = off === 0 ? 1 : 0.2;if(off === 0){
+  el.style.color = "#ff2a2a";
+  el.style.textShadow = `
+    0 0 20px rgba(255,0,0,0.9),
+    0 0 50px rgba(255,0,0,0.6),
+    0 0 100px rgba(255,0,0,0.3)
+  `;
+} else {
+  el.style.color = "rgba(255,255,255,0.3)";
+}el.textContent=disciplines[idx];wrap.appendChild(el)}}
+render();setInterval(()=>{cur=(cur+1)%disciplines.length;render()},2000);
+})();
+
+// Reasons
+(function(){
+const reasons=[{title:"Early access to premium gigs",icon:'<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>'},{title:"Priority onboarding",icon:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>'},{title:"Exclusive creator network",icon:'<circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="14"/><path d="m4 21 3.5-7h9L20 21"/><path d="M8 14h8"/>'}];
+const c=document.getElementById('reasons');reasons.forEach((r,i)=>{const d=document.createElement('div');d.className='reason-card glass-card fade-left';d.style.transitionDelay=i*.1+'s';d.innerHTML=`<div class="reason-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${r.icon}</svg></div><span>${r.title}</span>`;c.appendChild(d);obs.observe(d)});
+})();
+
+// Brands
+(function(){
+const features=[{title:"Hire faster",desc:"Find and onboard talent in hours, not weeks",icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'},{title:"Verified talent",desc:"Every creator is vetted for quality and reliability",icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>'},{title:"Scalable creative production",desc:"From one shoot to a hundred — we grow with you",icon:'<line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>'}];
+const c=document.getElementById('brands');features.forEach((f,i)=>{const d=document.createElement('div');d.className='brand-card glass-card fade-up';d.style.transitionDelay=i*.15+'s';d.innerHTML=`<div class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${f.icon}</svg></div><h3>${f.title}</h3><p>${f.desc}</p>`;c.appendChild(d);obs.observe(d)});
+})();
+
+// Countdown
+(function(){
+const target=Date.now()+42*24*60*60*1000;const c=document.getElementById('countdown');
+function tick(){const d=Math.max(0,target-Date.now());const u=[{l:'Days',v:Math.floor(d/864e5)},{l:'Hours',v:Math.floor(d/36e5)%24},{l:'Minutes',v:Math.floor(d/6e4)%60},{l:'Seconds',v:Math.floor(d/1e3)%60}];c.innerHTML=u.map(x=>`<div class="countdown-box glass-card"><div class="num gradient-text">${String(x.v).padStart(2,'0')}</div><div class="label">${x.l}</div></div>`).join('')}
+tick();setInterval(tick,1000);
+})();
+document.querySelector('.logo').addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+</body>
+</html>

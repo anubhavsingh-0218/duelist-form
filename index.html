@@ -4,8 +4,8 @@
   <link rel="icon" type="image/png" href="favicons.png">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Join Duelist Creatives — Apply to freelance with India's elite creative network." />
-<title>Duelist Creatives -Careers</title>
+<meta name="description" content="Join DUELIST — Apply to freelance with India's elite creative network." />
+<title>DUELIST -Careers</title>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -96,11 +96,39 @@
 
 /* HAMBURGER */
 .hamburger {
-  font-size: 22px;
-  cursor: pointer;
+  width: 38px;
+  height: 38px;
   display: none;
-  padding: 6px 10px;
-  border-radius: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.hamburger span {
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* Animation */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .hamburger:hover {
@@ -722,7 +750,7 @@ footer{
   <!-- LEFT -->
   <div class="brand">
     <img src="./logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
-    <span>Duelist Creatives</span>
+    <span>DUELIST</span>
   </div>
 
   <!-- CENTER (PC NAV) -->
@@ -735,14 +763,18 @@ footer{
   <div class="nav-right">
     <div class="topbar-tag">Now Hiring Creators</div>
 
-    <div class="hamburger" onclick="toggleMenu()">
-      ☰
-    </div>
-  </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <span></span>
+  
+  <span></span>
+  
+  <span></span>
+  ☰
+</div>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="duelist.html">Duelist Creatives</a>
+    <a href="duelist.html">Duelist</a>
     <a href="vishnity.html">Vishnity</a>
   </div>
 </header>
@@ -756,7 +788,7 @@ footer{
 
     <h1 class="hero-title">
       Join 
-      <span class="accent">Duelist Creatives</span>
+      <span class="accent">DUELIST</span>
     </h1>
 
     <p class="hero-sub">
@@ -816,7 +848,7 @@ footer{
       <div class="success-icon">🎉</div>
       <h3 class="success-title">Application Received!</h3>
       <p class="success-sub">
-        Thank you for applying to Duelist Creatives. Our team reviews every application personally — we'll reach out within 48 hours if you're a fit.
+        Thank you for applying to DUELIST. Our team reviews every application personally — we'll reach out within 48 hours if you're a fit.
       </p>
       <div class="success-tag">✓ Submitted Successfully</div>
       <button onclick="resetForm()" class="btn-apply" style="margin-top:4px;font-size:14px;padding:13px 28px">
@@ -979,7 +1011,7 @@ footer{
               rows="4"
               maxlength="1000"
             ></textarea>
-            <label class="field-label" for="experience">Your Experience</label>
+            <label class="field-label" for="experience">Your Experience (Attach Portfolio/Resume Links)</label>
             <div class="char-count" id="expCount">0 / 1000</div>
           </div>
 
@@ -1019,13 +1051,13 @@ footer{
   <footer>
     <div class="footer-brand">
       
-      Duelist Creatives
+      DUELIST CREATIVES
     </div>
     <div class="footer-promise">
       <i data-lucide="heart"></i>
       We'll reach out if you're a fit.
     </div>
-    <div class="footer-copy">© 2025 Duelist Creatives Pvt. Ltd. · Made in 🇮🇳 India</div>
+    <div class="footer-copy">© 2025 DUELIST  CREATIVES · Made in 🇮🇳 India</div>
   </footer>
 
 </div><!-- /page -->
@@ -1044,7 +1076,12 @@ footer{
 lucide.createIcons();
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
+  const burger = document.getElementById("hamburger");
+
+  const isOpen = menu.style.display === "block";
+
+  menu.style.display = isOpen ? "none" : "block";
+  burger.classList.toggle("active");
 }
 // ── Scroll reveal
 const revealEls = document.querySelectorAll('.reveal, .reveal-stagger, .form-label-section');
